@@ -1,11 +1,9 @@
-import { useState } from 'react';
 import styled from 'styled-components';
 import { Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
 export const IntroPage = () => {
   const navigate = useNavigate();
-
   return (
     <LayoutStyle>
       <h1>
