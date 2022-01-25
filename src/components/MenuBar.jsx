@@ -7,29 +7,26 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import IconButton from '@mui/material/IconButton';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export const MenuBar = () => {
-  const ArrayIcons = {
-    1: {
-      url: '/home',
-      icon: faHome,
-    },
-    2: {
-      url: '/home/search',
-      icon: faSearch,
-    },
-    3: {
-      url: '/home/profile',
-      icon: faUserCircle,
-    },
-  };
+  // 後で、iconクリック時の遷移先修正する
+  const navigate = useNavigate();
+  const ArrayIcons = [faHome, faSearch, faUserCircle];
+  const ArrayUrl = ['/', '/home/search', '/home/profile'];
 
   return (
     <TopMenu>
       {ArrayIcons.map((icon, key) => (
-        <IconButton className={`${icon}Button`} aria-label="Example">
-          <FontAwesomeIcon className={icon} icon={icon} key={key} />
+        <IconButton
+          key={key}
+          className={`${icon}Button`}
+          aria-label="Example"
+          onClick={() => {
+            navigate(ArrayUrl[key]);
+          }}
+        >
+          <FontAwesomeIcon icon={icon} key={key} />
         </IconButton>
       ))}
     </TopMenu>
@@ -37,9 +34,16 @@ export const MenuBar = () => {
 };
 
 const TopMenu = styled.div`
-width:100%;
-height:5rem;
-&:faHomeButton, faSearchButton, faUserCircleButton{
-  background:red;
-}
-}`;
+  width: 100%;
+  height: 5rem;
+  display: flex;
+  justify-content: space-between;
+
+  svg {
+    height: 4rem;
+    color: white;
+  }
+  .svg-inline--fa {
+    width: 4rem;
+  }
+`;
