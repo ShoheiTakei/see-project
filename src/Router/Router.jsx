@@ -8,6 +8,7 @@ import { SignUpPage } from '../components/pages/SignUpPage';
 import { MovieInfoPage } from '../components/pages/MovieInfo';
 
 // パスがルートの場合は、何を表示すればいいか？
+// パスが一致しなかった時の処理追加
 export const Router = () => {
   return (
     <Routes>

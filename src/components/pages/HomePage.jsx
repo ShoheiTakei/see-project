@@ -7,19 +7,6 @@ import { useEffect, useState } from 'react';
 
 export const HomePage = () => {
   const [movieList, setMovieList] = useState([]);
-
-  // useEffect(() => {
-  //   new Promise((resolve) => {
-  //     onSnapshot(doc(db, 'users', 'test'), (doc) => {
-  //       resolve(doc.data());
-  //     });
-  //   })
-  //     .then((value) => {
-  //       setMovieList(value);
-  //     })
-  //     .catch((e) => console.log(e))
-  //     .finally(() => console.log(movieList));
-  // }, []);
   return (
     <div>
       <MenuBar />
