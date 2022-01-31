@@ -1,16 +1,16 @@
 import { Button } from '@mui/material';
-import { useFetchSearchData } from '../hooks/useFetchSearchData';
+import { useFetchMovies } from '../hooks/useFetchMovies';
 
 export const SearchButton = (props) => {
   const { children } = props;
-  const { fetchData } = useFetchSearchData();
-  const onClickFetchData = () => {
-    console.log('onClickFetchData()が実行されました');
-    fetchData();
+  const { results } = useFetchMovies();
+  const onCLickEvent = () => {
+    console.log('ボタンが押されました');
+    console.log(results);
   };
 
   return (
-    <Button color="primary" variant="contained" onClick={onClickFetchData}>
+    <Button color="primary" variant="contained" onClick={onCLickEvent}>
       {children}
     </Button>
   );

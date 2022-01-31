@@ -1,32 +1,15 @@
 import styled from 'styled-components';
 import media from 'styled-media-query';
-import { memo } from 'react';
 import { SearchInput } from '../input/SearchInput';
 import { SearchButton } from '../button/SearchButton';
 import { ResultWrapper } from '../wrapper/ResultWrapper';
-import { useFetchSearchData } from '../hooks/useFetchSearchData.js';
 
 export const SearchPage = () => {
-  const { searchResults, showSearchResults } = useFetchSearchData();
-
   return (
     <SearchPageWrapper>
       <SearchInput />
-      <SearchButton>ボタン</SearchButton>
+      <SearchButton>検索</SearchButton>
       <ResultWrapper />
-      {/* {showSearchResults &&
-        (searchRes.length > 0 ? (
-          <>
-            <>
-              <p>検索結果が見つかりました。</p>
-            </>
-            <ResultWrapper searchResults={searchResults} />
-          </>
-        ) : (
-          <>
-            <p>検索結果が見つかりませんでした。</p>
-          </>
-        ))} */}
     </SearchPageWrapper>
   );
 };

@@ -1,14 +1,10 @@
-import { useFetchSearchData } from '../hooks/useFetchSearchData';
+import { useFetchMovies } from '../hooks/useFetchMovies';
 
 export const SearchInput = () => {
-  const { changeInputText } = useFetchSearchData();
-  const onChangeText = (event) => {
-    console.log('onChangeTextが実効されました');
-    changeInputText(event.target.value);
-  };
+  const { changeInputValue } = useFetchMovies();
   return (
     <input
-      onChange={onChangeText}
+      onChange={changeInputValue}
       type="search"
       placeholder="映画のタイトルを入力する"
     />
